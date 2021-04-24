@@ -1,11 +1,21 @@
 import React from 'react'
 
-function searchBar() {
+function SearchBar({search, handleInputChange}) {
     return (
         <div className="input-group mb-3">
-            <input type="text" className="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1"/>
+            <input 
+                id="searchBar"
+                name="search"
+                type="text"
+                className="form-control"
+                placeholder="Search"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+                value={search}
+                onChange={handleInputChange}>
+            </input>
         </div>
     )
 }
 
-export default searchBar
+export default SearchBar
