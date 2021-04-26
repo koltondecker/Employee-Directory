@@ -2,7 +2,7 @@ import React from "react";
 import TableBody from "./TableBody";
 import moment from "moment";
 
-function Table({ employeesData }) {
+function Table({ employeesData, sortBy }) {
     console.log(employeesData);
     return (
         <div>
@@ -10,10 +10,10 @@ function Table({ employeesData }) {
                 <thead>
                     <tr>
                         <th scope="col">Image</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">DOB</th>
+                        <th scope="col" onClick={() => sortBy("name")}>Name</th>
+                        <th scope="col" onClick={() => sortBy("phone")}>Phone</th>
+                        <th scope="col" onClick={() => sortBy("email")}>Email</th>
+                        <th scope="col" onClick={() => sortBy("dob")}>DOB</th>
                     </tr>
                 </thead>
                 <tbody>

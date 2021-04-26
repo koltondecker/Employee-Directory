@@ -7,6 +7,7 @@ import API from "./utils/API";
 function App() {
   const [employeesData, setEmployeesData] = useState([]);
   const [search, setSearch] = useState("");
+  const [dataSort, setDataSort] = useState("");
 
   const handleInputChange = (event) => {
     setSearch(event.target.value);
@@ -22,6 +23,19 @@ function App() {
     });
   };
 
+  const compareBy = (key) => {
+    return function (a, b) {
+      if (a[key] < b[key]) return -1;
+      if (a[key] > b[key]) return 1;
+      return 0;
+    };
+  }
+ 
+  const sortBy = (key) => {
+    dataSort ? setEmployeesData((previousData) => [...previousData.sort().reverse()]) : setEmployeesData((previousData) => [...previousData.sort(compareBy(key))]);
+    setDataSort(!dataSort);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -31,7 +45,7 @@ function App() {
             return employee.name.first
               .toUpperCase()
               .includes(search.toUpperCase());
-          })} />
+          })} sortBy={sortBy} />
       </header>
     </div>
   );
