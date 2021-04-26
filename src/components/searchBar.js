@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import "./searchbar.css";
 
 function SearchBar({search, handleInputChange}) {
     return (
-        <div className="input-group mb-3">
+        <div id="searchBarWrapper" className="input-group mb-3">
             <input 
                 id="searchBar"
                 name="search"

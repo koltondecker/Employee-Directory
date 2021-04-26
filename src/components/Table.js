@@ -1,10 +1,11 @@
 import React from "react";
 import TableBody from "./TableBody";
 import moment from "moment";
+import "./table.css";
 
 function Table({ employeesData, sortBy }) {
     return (
-        <div>
+        <div id="tableDiv">
             <table className="table table-striped">
                 <thead>
                     <tr>
