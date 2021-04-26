@@ -3,17 +3,16 @@ import TableBody from "./TableBody";
 import moment from "moment";
 
 function Table({ employeesData, sortBy }) {
-    console.log(employeesData);
     return (
         <div>
             <table className="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">Image</th>
-                        <th scope="col" onClick={() => sortBy("name")}>Name</th>
+                        <th scope="col" onClick={() => sortBy("fullName")}>Name</th>
                         <th scope="col" onClick={() => sortBy("phone")}>Phone</th>
                         <th scope="col" onClick={() => sortBy("email")}>Email</th>
-                        <th scope="col" onClick={() => sortBy("dob")}>DOB</th>
+                        <th scope="col" onClick={() => sortBy("birthdate")}>DOB</th>
                     </tr>
                 </thead>
                 <tbody>

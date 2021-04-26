@@ -3,6 +3,7 @@ import Jumbotron from "./components/Jumbotron";
 import SearchBar from './components/SearchBar';
 import Table from './components/Table';
 import API from "./utils/API";
+import moment from "moment";
 
 function App() {
   const [employeesData, setEmployeesData] = useState([]);
@@ -19,7 +20,13 @@ function App() {
 
   const getRandomEmployees = () => {
     API.getEmployees().then((res) => {
-      setEmployeesData(res.data.results);
+      const data = res.data.results;
+      data.forEach(user => {
+        user.fullName = user.name.first + " " + user.name.last;
+        user.birthdate = moment(user.dob.date).format("L");
+      });
+      setEmployeesData(data);
+
     });
   };
 
